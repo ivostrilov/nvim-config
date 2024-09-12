@@ -24,6 +24,9 @@ require("lazy").setup({
   -- Formatting
   -- { 'jose-elias-alvarez/null-ls.nvim' },
 
+  -- Work with russian language
+  { 'aveplen/ruscmd.nvim' },
+
   { 'vim-scripts/BufOnly.vim' },
 
   -- Comments
