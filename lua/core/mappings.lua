@@ -1,5 +1,14 @@
 vim.g.mapleader = " "
 
+-- absolute path to clipboard
+vim.api.nvim_set_keymap('n', '<F1>', [[<Cmd>let @+ = expand('%:p')<CR>]], { noremap = true, silent = true })
+
+-- relative path to clipboard
+vim.api.nvim_set_keymap('n', '<F2>', [[<Cmd>let @+ = expand('%:f')<CR>]], { noremap = true, silent = true })
+
+-- filename to clipboard
+vim.api.nvim_set_keymap('n', '<F3>', [[<Cmd>let @+ = expand('%:t')<CR>]], { noremap = true, silent = true })
+
 -- NeoTree
 vim.keymap.set('n', '<leader>N', ':Neotree float focus <CR>')
 vim.keymap.set('n', '<leader>n', ':Neotree filesystem reveal left <CR>')
@@ -24,4 +33,3 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-

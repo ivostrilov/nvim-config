@@ -152,14 +152,14 @@ config = function ()
               --    show_path = "none" -- "none", "relative", "absolute"
               --  }
               --}
-              ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
-              ["q"] = "close_window",
-              ["R"] = "refresh",
-              ["?"] = "show_help",
-              ["<"] = "prev_source",
-              [">"] = "next_source",
-              ["i"] = "show_file_details",
-            }
+          ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+          ["q"] = "close_window",
+          ["R"] = "refresh",
+          ["?"] = "show_help",
+          ["<"] = "prev_source",
+          [">"] = "next_source",
+          ["i"] = "show_file_details",
+        }
           },
           nesting_rules = {},
           filesystem = {
