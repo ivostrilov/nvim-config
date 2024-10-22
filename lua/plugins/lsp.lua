@@ -29,7 +29,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gh', vim.lsp.buf.hover)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
 
     -- Format
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
