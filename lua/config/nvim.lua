@@ -19,10 +19,50 @@ function setup_visual_helpers()
   vim.opt.splitright = true
 end
 
+function setup_lsp_keymaps()
+  vim.keymap.set(
+    "n", "<leader>lf", function()
+      vim.lsp.buf.format()
+    end,
+    { desc = "Format buffer with LSP" }
+  )
+end
+
 function setup_keymaps()
   vim.g.mapleader = " " -- Setup '<leader>' key to space
 
-  vim.keymap.set("v", "<leader>y", '"+y')  -- Copy to system clipboard
+  setup_lsp_keymaps()
+
+  -- Copy to system clipboard
+  vim.keymap.set(
+    "v", "<leader>y", '"+y', { desc = "Copy to system clipboard" }
+  )
+
+  --- Open current directory
+  vim.keymap.set(
+    'n', '\\', function()
+      local filesystem = require("utils.filesystem")
+
+      local dirpath = filesystem.get_current_dirpath()
+      if not dirpath then
+        vim.notify("dirpath is nil")
+        return
+      end
+
+      vim.cmd("edit " .. dirpath)
+    end,
+    { desc = "Open current directory" }
+  )
+
+  -- Open diagnostic hover window
+  vim.keymap.set(
+    "n", "<leader>d", function()
+      vim.diagnostic.open_float()
+    end,
+    { desc = "Hover diagnostic info" }
+  )
+
+  vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Open new tab" })
 end
 
 setup_identation()
