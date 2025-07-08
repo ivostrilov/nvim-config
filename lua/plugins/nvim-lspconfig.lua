@@ -15,6 +15,6 @@ return {
     vim.g.enable_clangd = M.enable_clangd
 
     -- Uncomment if want to enable by default
-    vim.g.enable_clangd()
+    -- vim.g.enable_clangd()
   end
 }
