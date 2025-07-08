@@ -63,6 +63,14 @@ function setup_keymaps()
   )
 
   vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "Open new tab" })
+
+  vim.keymap.set(
+    "x", "<leader>e", function()
+      local executing = require("utils.executing")
+      executing.execute_selected_lua_lines()
+    end,
+    { desc = "Execute selected lua lines" }
+  )
 end
 
 setup_identation()
