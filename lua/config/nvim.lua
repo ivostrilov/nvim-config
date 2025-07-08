@@ -29,6 +29,9 @@ function setup_lsp_keymaps()
 end
 
 function setup_keymaps()
+  -- Setup default keymaps.
+  -- All keymaps can be reset in 'plugins/' files.
+
   vim.g.mapleader = " " -- Setup '<leader>' key to space
 
   setup_lsp_keymaps()
