@@ -9,6 +9,7 @@ return {
   opts = {},
   config = function()
     vim.keymap.set("n", "<leader>b", ":FzfLua buffers<CR>")
-    vim.keymap.set("n", "<leader>f", ":FzfLua files<CR>")
+    vim.keymap.set("n", "<leader>ff", ":FzfLua files<CR>")
+    vim.keymap.set("n", "<leader>fg", ":FzfLua grep_visual<CR>")
   end
 }

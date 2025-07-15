@@ -21,10 +21,15 @@ end
 
 function setup_lsp_keymaps()
   vim.keymap.set(
-    "n", "<leader>lf", function()
-      vim.lsp.buf.format()
-    end,
-    { desc = "Format buffer with LSP" }
+    "n", "gd", vim.lsp.buf.definition, { desc = "LSP go to definition" }
+  )
+
+  vim.keymap.set(
+    "n", "<leader>lf", vim.lsp.buf.format, { desc = "Format buffer with LSP" }
+  )
+
+  vim.keymap.set(
+    "n", "<space>rn", vim.lsp.buf.rename, { desc = "LSP rename under cursor" }
   )
 end
 
