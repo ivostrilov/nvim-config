@@ -12,7 +12,7 @@ end
 
 function setup_visual_helpers()
   vim.opt.number = true      -- Indexing lines by numbers (left edge column)
-  vim.opt.colorcolumn = "80" -- Vertical column for inspecting line length
+  vim.opt.colorcolumn = "81" -- Vertical column for inspecting line length
 
   -- Open splitted buffer with a comfotable side
   vim.opt.splitbelow = true
