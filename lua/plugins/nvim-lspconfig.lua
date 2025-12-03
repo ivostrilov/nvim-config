@@ -6,6 +6,7 @@ return {
     -- Usage ':lua vim.g.enable_clangd()'
     vim.g.enable_clangd = require("utils.clangd_setup").setup
     vim.g.enable_pylsp = require("utils.pylsp_setup").setup
+    vim.g.enable_kotlin = require("utils.kotlin_language_server_setup").setup
 
     -- Also available ':lua vim.g.enable_jdtls()'.
     -- Check 'plugins/nvim-lspconfig.lua'.
