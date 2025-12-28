@@ -1,15 +1,16 @@
 M = {}
-M.script_path = "lua/utils/pylsp_setup.lua"
+
+local script_path = "lua/utils/pylsp_setup.lua"
 
 function format_python_file()
-  print(M.script_path .. "::format_python_file executing...")
+  print(script_path .. "::format_python_file executing...")
   vim.cmd("write")
   vim.cmd("!isort % && black %")
   vim.cmd("edit %")
 end
 
 function M.setup()
-  print(M.script_path .. "::setup executing...")
+  print(script_path .. "::setup executing...")
 
   vim.lsp.config("pylsp", {
     on_attach = function()

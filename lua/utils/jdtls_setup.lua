@@ -1,10 +1,11 @@
 M = {}
-M.script_path = "lua/utils/jdtls_setup.lua"
+
+local script_path = "lua/utils/jdtls_setup.lua"
 
 java_home = "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
 
 function M.setup()
-  print(M.script_path .. "::setup executing...");
+  print(script_path .. "::setup executing...");
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "java",
     callback = function(args)

@@ -1,8 +1,9 @@
 M = {}
-M.script_path = "lua/utils/clangd_setup.lua"
+
+local script_path = "lua/utils/clangd_setup.lua"
 
 function M.setup()
-  print(M.script_path .. "::setup() executing...")
+  print(script_path .. "::setup() executing...")
 
   vim.lsp.config("clangd", {
     on_attach = function()
@@ -23,7 +24,7 @@ function M.setup()
 end
 
 function format_by_clang_format()
-  print(M.script_path .. "::format_by_clang_format executing...")
+  print(script_path .. "::format_by_clang_format executing...")
   vim.cmd("write")
   vim.cmd("!clang-format -i %")
   vim.cmd("edit %")
