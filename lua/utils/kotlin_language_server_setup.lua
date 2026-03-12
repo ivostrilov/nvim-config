@@ -8,4 +8,11 @@ function M.setup()
   vim.lsp.enable("kotlin_language_server")
 end
 
+function M.kill()
+  print(script_path .. "::kill() executing...")
+
+  vim.lsp.enable("kotlin_language_server", false)
+  vim.fn.jobstart("pkill -f kotlin-language-server", { detach = true })
+end
+
 return M
