@@ -41,12 +41,24 @@ function setup_keymaps()
 
   setup_lsp_keymaps()
 
-  -- Copy to system clipboard
   vim.keymap.set(
     "v", "<leader>y", '"+y', { desc = "Copy to system clipboard" }
   )
 
-  --- Open current directory
+  vim.keymap.set('n', '<leader>fy', function()
+    local filesystem = require("utils.filesystem")
+    local filepath = filesystem.get_current_relative_filepath()
+    vim.fn.setreg('+', filepath)
+    vim.notify('Copied: ' .. filepath)
+  end, { desc = 'Copy relative filepath' })
+
+  vim.keymap.set('n', '<leader>fY', function()
+    local filesystem = require("utils.filesystem")
+    local filepath = filesystem.get_current_absolute_filepath()
+    vim.fn.setreg('+', filepath)
+    vim.notify('Copied: ' .. filepath)
+  end, { desc = 'Copy absolute filepath' })
+
   vim.keymap.set(
     'n', '\\', function()
       local filesystem = require("utils.filesystem")
