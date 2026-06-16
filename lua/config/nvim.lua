@@ -18,8 +18,22 @@ local function setup_visual_helpers()
 end
 
 local function setup_keymaps()
+  local path = require("utils.path")
+
   vim.keymap.set("v", "<leader>y", '"+y', {
     desc = "Copy to system clipboard",
+  })
+
+  vim.keymap.set("n", "<leader>fy", path.copy_relative_filepath, {
+    desc = "Copy relative file path",
+  })
+
+  vim.keymap.set("n", "<leader>fY", path.copy_absolute_filepath, {
+    desc = "Copy absolute file path",
+  })
+
+  vim.keymap.set("n", "<leader>e", path.open_parent_dir, {
+    desc = "Open parent directory",
   })
 end
 
