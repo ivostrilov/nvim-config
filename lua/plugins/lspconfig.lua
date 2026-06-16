@@ -11,5 +11,6 @@ return {
     })
 
     vim.lsp.config("kotlin_lsp", {})
+    vim.lsp.config("bashls", {})
   end,
 }

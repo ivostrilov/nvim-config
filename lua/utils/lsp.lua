@@ -2,6 +2,7 @@ local M = {}
 
 local servers_by_filetype = {
   kotlin = "kotlin_lsp",
+  sh = "bashls"
 }
 
 local function warn(message)
