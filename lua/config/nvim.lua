@@ -18,6 +18,7 @@ local function setup_visual_helpers()
 end
 
 local function setup_keymaps()
+  local lsp = require("utils.lsp")
   local path = require("utils.path")
 
   vim.keymap.set("v", "<leader>y", '"+y', {
@@ -35,8 +36,23 @@ local function setup_keymaps()
   vim.keymap.set("n", "<leader>e", path.open_parent_dir, {
     desc = "Open parent directory",
   })
+
+  vim.keymap.set("n", "<leader>ls", lsp.start_current_buffer, {
+    desc = "Start LSP for current buffer",
+  })
+end
+
+local function setup_commands()
+  local lsp = require("utils.lsp")
+
+  vim.api.nvim_create_user_command("LspStartCurrent", function()
+    lsp.start_current_buffer()
+  end, {
+    desc = "Start LSP for current buffer",
+  })
 end
 
 setup_indentation()
 setup_visual_helpers()
 setup_keymaps()
+setup_commands()
