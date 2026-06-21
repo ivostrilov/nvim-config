@@ -40,6 +40,15 @@ local function setup_keymaps()
   vim.keymap.set("n", "<leader>ls", lsp.start_current_buffer, {
     desc = "Start LSP for current buffer",
   })
+
+  vim.keymap.set('n', '<leader>d', function()
+    vim.diagnostic.open_float({
+      focusable = true,  -- Allows jumping into the float on a second press
+      source = "if_many",
+      border = "rounded",
+    })
+  end, { desc = "Open floating diagnostic with options" })
+
 end
 
 local function setup_commands()
