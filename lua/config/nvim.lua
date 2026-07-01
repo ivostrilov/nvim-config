@@ -17,6 +17,25 @@ local function setup_visual_helpers()
   vim.opt.splitright = true
 end
 
+local function setup_statusline()
+  vim.opt.statusline = table.concat({
+    "%f",
+    "%m",
+    "%=",
+    "%{%v:lua.require('utils.lsp').statusline()%}",
+    "%l:%c",
+  }, " ")
+
+  vim.api.nvim_create_autocmd({ "LspAttach", "LspDetach", "BufEnter" }, {
+    group = vim.api.nvim_create_augroup("user_statusline", {
+      clear = true,
+    }),
+    callback = function()
+      vim.cmd.redrawstatus()
+    end,
+  })
+end
+
 local function setup_keymaps()
   local lsp = require("utils.lsp")
   local path = require("utils.path")
@@ -63,5 +82,6 @@ end
 
 setup_indentation()
 setup_visual_helpers()
+setup_statusline()
 setup_keymaps()
 setup_commands()

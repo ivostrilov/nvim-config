@@ -2,7 +2,7 @@ local M = {}
 
 local servers_by_filetype = {
   kotlin = "kotlin_lsp",
-  sh = "bashls"
+  sh = "bashls",
 }
 
 local function warn(message)
@@ -29,6 +29,26 @@ function M.start_current_buffer()
   if not ok then
     warn("Failed to start LSP server " .. server .. ": " .. err)
   end
+end
+
+function M.statusline()
+  local clients = vim.lsp.get_clients({
+    bufnr = vim.api.nvim_get_current_buf(),
+  })
+
+  if next(clients) == nil then
+    return "LSP: [No]"
+  end
+
+  local names = {}
+
+  for _, client in ipairs(clients) do
+    table.insert(names, client.name)
+  end
+
+  table.sort(names)
+
+  return "LSP: [" .. table.concat(names, ", ") .. "]"
 end
 
 return M
