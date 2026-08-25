@@ -8,7 +8,7 @@ return {
   opts = {},
   config = function()
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "kotlin" },
+      pattern = { "kotlin", ".json" },
       callback = function()
         vim.treesitter.start()
       end,
