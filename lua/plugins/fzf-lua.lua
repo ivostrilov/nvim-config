@@ -25,9 +25,30 @@ return {
     {
       "<leader>fg",
       function()
-        require("fzf-lua").grep()
+        require("fzf-lua").live_grep()
       end,
-      desc = "Find by grep",
+      desc = "Find by live grep",
+    },
+    {
+      "<leader>fw",
+      function()
+        require("fzf-lua").grep_cword()
+      end,
+      desc = "Find word under cursor",
+    },
+    {
+      "<leader>fr",
+      function()
+        require("fzf-lua").resume()
+      end,
+      desc = "Resume last search",
+    },
+    {
+      "<leader>fs",
+      function()
+        require("fzf-lua").lsp_document_symbols()
+      end,
+      desc = "Find document symbols",
     },
     {
       "<leader>fm",
@@ -35,6 +56,13 @@ return {
         require("fzf-lua").marks()
       end,
       desc = "Find marks",
+    },
+    {
+      "<leader>gs",
+      function()
+        require("fzf-lua").git_status()
+      end,
+      desc = "Find Git changes",
     },
   },
 }
