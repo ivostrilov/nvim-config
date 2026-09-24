@@ -37,6 +37,7 @@ local function setup_statusline()
 end
 
 local function setup_keymaps()
+  local codex = require("utils.codex")
   local lsp = require("utils.lsp")
   local path = require("utils.path")
 
@@ -54,6 +55,14 @@ local function setup_keymaps()
 
   vim.keymap.set("n", "<leader>e", path.open_parent_dir, {
     desc = "Open parent directory",
+  })
+
+  vim.keymap.set("x", "<leader>c", codex.open_with_selection, {
+    desc = "Open Codex with selection",
+  })
+
+  vim.keymap.set("n", "<leader>c", codex.open_with_file_path, {
+    desc = "Open Codex with file path",
   })
 
   vim.keymap.set("n", "<leader>ls", lsp.start_current_buffer, {
