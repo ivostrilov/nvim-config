@@ -41,6 +41,15 @@ local function setup_keymaps()
   local lsp = require("utils.lsp")
   local path = require("utils.path")
 
+  vim.keymap.set("t", "<C-g>", "<C-\\><C-n>", {
+    desc = "Exit terminal to Normal mode",
+  })
+
+  vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Go to left window" })
+  vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Go to window below" })
+  vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Go to window above" })
+  vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Go to right window" })
+
   vim.keymap.set("v", "<leader>y", '"+y', {
     desc = "Copy to system clipboard",
   })
@@ -65,7 +74,7 @@ local function setup_keymaps()
     desc = "Open Codex with file path",
   })
 
-  vim.keymap.set("n", "<leader>ls", lsp.start_current_buffer, {
+  vim.keymap.set("n", "<leader>s", lsp.start_current_buffer, {
     desc = "Start LSP for current buffer",
   })
 
