@@ -6,6 +6,7 @@ return {
   opts = {
     autocmds = {
       enableOnVimEnter = true,
+      enableOnTabEnter = true,
       skipEnteringNoNeckPainBuffer = true,
     },
     buffers = {
